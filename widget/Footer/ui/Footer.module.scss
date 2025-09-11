@@ -1,0 +1,132 @@
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+
+.footer {
+  padding: 5rem 6.25rem; // py-20 px-25
+  background-color: #DA3438;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  margin-top: 2.5rem; // mt-10
+
+  @media (max-width: $xxl) {
+    padding: 4.75rem 6rem;
+  }
+
+  @media (max-width: $xl) {
+    padding: 5.75rem 4.5rem;
+
+  }
+
+  @media (max-width: $lg) {
+    padding: 4.5rem 3rem;
+  }
+
+  @media (max-width: $md) {
+    padding: 3.5rem 2.25rem;
+
+  }
+
+  @media (max-width: $sm) {
+    padding: 2.5rem 1.5rem;
+    flex-direction: column;
+    gap: 2.5rem;
+
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem; // gap-7
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; // gap-10
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+
+    @media (max-width: $sm) {
+      flex-direction: column;
+      align-items: start;
+      gap: 1.5rem;
+
+    }
+  }
+
+  &__bottomText {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // gap-3
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+
+    @media (max-width: $sm) {
+      flex-direction: column;
+      align-items: start;
+
+      > *:nth-child(2n) {
+        display: none;
+      }
+
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: $sm) {
+      flex-direction: column;
+      align-items: start;
+      gap: 2.5rem;
+
+
+    }
+  }
+
+  &__downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; // gap-6
+
+    @media (max-width: $sm) {
+      gap: 2.5rem;
+
+    }
+  }
+
+  &__stores {
+    display: flex;
+    gap: 0.75rem; // gap-3
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; // gap-2
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+
+    @media (max-width: $sm) {
+      align-items: start;
+
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1.5rem; // gap-6
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

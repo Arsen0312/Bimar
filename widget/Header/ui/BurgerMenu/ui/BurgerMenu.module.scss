@@ -1,0 +1,109 @@
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+
+.burgerMenuTrigger {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 7px;
+  width: 24px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &__line {
+    background-color: white;
+    width: 24px;
+    height: 2px;
+    transition: all 0.2s;
+    transform-origin: left center;
+  }
+
+  &__lineOneTransform {
+
+    transform: rotate(45deg);
+    transition: all 0.2s;
+  }
+
+  &__lineTwoTransform {
+    transition: all 0.2s;
+    opacity: 0;
+  }
+
+  &__lineThreeTransform {
+    transform: rotate(-45deg);
+    transition: all 0.2s;
+
+  }
+}
+
+.burgerMenu {
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  transition: right 0.25s;
+  right: -400px;
+  top: 100px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width: $xxl) {
+    //padding: 22px 80px;
+  }
+
+  @media (max-width: $xl) {
+    //padding: 18px 60px;
+  }
+
+  @media (max-width: $lg) {
+    //padding: 16px 30px;
+    top: 82px;
+
+  }
+
+  @media (max-width: $md) {
+    //padding: 16px 26px;
+    top: 78px;
+
+  }
+
+  @media (max-width: $sm) {
+    //padding: 14px 22px;
+
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+
+    &__link {
+      text-align: center;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    a {
+      background: #202020;
+      border-radius: 8px;
+      padding: 8px;
+    }
+  }
+}
+
+.open {
+  right: 0;
+  transition: right 0.2s;
+}

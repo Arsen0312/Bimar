@@ -1,0 +1,766 @@
+/* app/Page.module.scss */
+
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+
+@mixin sectionTitle {
+  color: var(--primary);
+  text-align: center;
+  font-weight: 700;
+  line-height: 2.2rem;
+  font-size: 2.25rem;
+
+  @media (max-width: $xxl) {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 28px
+
+  }
+
+  @media (max-width: $xl) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: $lg) {
+    font-size: 1.5rem;
+    line-height: 24px
+  }
+
+  @media (max-width: $md) {
+    font-size: 1.25rem;
+    line-height: 24px
+  }
+
+  @media (max-width: $sm) {
+    font-size: 1.125rem;
+    line-height: 24px
+  }
+}
+
+@mixin sectionDescription {
+  color: var(--System-Colors-color-text-primary, #212121);
+  text-align: center;
+
+  /* Typography/Heading/MD */
+  font-size: var(--heading-font-size-heading-md, 28px);
+  font-style: normal;
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--heading-line-height-heading-md, 128.571%); /* 128.571% */
+
+
+  @media (max-width: $xxl) {
+    font-size: var(--heading-font-size-heading-md, 26px);
+    line-height: var(--heading-line-height-heading-md, 128.571%);
+
+  }
+
+  @media (max-width: $xl) {
+    font-size: var(--heading-font-size-heading-md, 24px);
+    line-height: var(--heading-line-height-heading-md, 128.571%); /* 128.571% */
+
+  }
+
+  @media (max-width: $lg) {
+    font-size: var(--heading-font-size-heading-md, 22px);
+    line-height: var(--heading-line-height-heading-md, 128.571%); /* 128.571% */
+    font-weight: 500;
+
+  }
+
+  @media (max-width: $md) {
+    font-size: 20px;
+    line-height: var(--heading-line-height-heading-md, 128.571%); /* 128.571% */
+
+  }
+
+  @media (max-width: $sm) {
+    font-size: 16px;
+    line-height: var(--heading-line-height-heading-md, 128.571%); /* 128.571% */
+    font-weight: 400;
+  }
+}
+
+:root {
+  /* ожидается, что var(--primary) определён глобально */
+}
+
+.main {
+  width: 100%;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  width: 100%;
+  height: auto;
+  margin-bottom: 80px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ---------- INTRO (первая безалкогольная сеть) ---------- */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+
+  &__titleWrap {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__row {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 90px;
+    gap: 24px;
+
+    @media (max-width: $lg) {
+      flex-direction: column;
+      padding-right: 0;
+      align-items: center;
+    }
+
+  }
+
+  &__imageWrap {
+    width: 100%;
+    max-width: 885px;
+    max-height: 686px;
+    aspect-ratio: 885 / 686;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $xl) {
+      background-position-x: 0;
+
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      width: 100%;
+      max-width: 580px;
+      border-radius: 50%;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: $xxl) {
+        width: 70%;
+
+      }
+
+      @media (max-width: $md) {
+        width: 65%;
+
+      }
+
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-end;
+
+    @media (max-width: $lg) {
+      align-items: stretch;
+      width: 100%;
+      max-width: 700px;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: $lg) {
+
+    &__cardWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+  }
+
+  &__card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 40px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    white-space: nowrap;
+
+    @media (max-width: $xl) {
+      padding: 20px 36px;
+      justify-content: center;
+    }
+
+    @media (max-width: $md) {
+      box-shadow: 0 75px 21px 0 rgba(0, 0, 0, 0.00), 0 48px 19px 0 rgba(0, 0, 0, 0.01), 0 27px 16px 0 rgba(0, 0, 0, 0.05), 0 12px 12px 0 rgba(0, 0, 0, 0.09), 0 3px 7px 0 rgba(0, 0, 0, 0.10);
+      padding: 14px 24px;
+      gap: 12px;
+    }
+
+    @media (max-width: $sm) {
+      padding: 8px 16px;
+
+    }
+
+    &Number {
+      font-size: 3rem; /* 48px */
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+
+      @media (max-width: $xl) {
+        color: var(--Primary-color-primary, #DD2B1C);
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      @media (max-width: $md) {
+        font-size: 1.5rem;
+
+      }
+
+      @media (max-width: $sm) {
+        font-size: 1rem;
+
+      }
+    }
+
+    &Text {
+      font-size: 1.375rem; /* 22px */
+      font-weight: 600;
+
+      @media (max-width: $xxl) {
+        color: #202020;
+        text-align: center;
+        font-style: normal;
+        font-weight: var(--font-weight-regular, 500);
+        line-height: var(--body-line-height-body-sm, 22px); /* 157.143% */
+        font-size: var(--body-font-size-body-sm, 20px);
+
+      }
+
+
+      @media (max-width: $xl) {
+        color: #202020;
+        font-weight: var(--font-weight-regular, 400);
+        font-size: var(--body-font-size-body-sm, 18px);
+
+      }
+
+      @media (max-width: $lg) {
+
+      }
+
+      @media (max-width: $md) {
+        font-size: var(--body-font-size-body-sm, 16px);
+
+      }
+
+      @media (max-width: $sm) {
+        font-size: var(--body-font-size-body-sm, 14px);
+
+      }
+
+    }
+
+  }
+}
+
+/* ---------- FRESH PRODUCTS (desktop-only как было: max-lg:hidden) ---------- */
+.fresh {
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+  height: 100%;
+
+  &__titleWrap {
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__group {
+    width: 100%;
+    height: auto;
+
+    @media (max-width: $xl) {
+      display: none;
+    }
+
+    &Row {
+      width: 100%;
+      display: flex;
+      gap: 44px;
+      padding-left: 100px;
+      padding-right: 52px;
+      align-items: center;
+
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
+    }
+
+    &ImagesCol {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    img {
+      display: block;
+    }
+  }
+}
+
+/* ---------- LOYALTY ---------- */
+.loyalty {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 36px;
+
+  &__titleWrap {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__p {
+    @include sectionDescription;
+    margin-top: 14px;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    position: relative;
+    min-height: 300px;
+
+    &__wrapper {
+      width: 100%;
+
+    }
+
+    @media (max-width: $lg) {
+      flex-direction: column;
+    }
+
+  }
+
+  &__left {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .phoneImg {
+      height: 100%;
+      width: auto;
+      border-radius: 40px;
+      object-fit: contain;
+
+      @media (max-width: $lg) {
+        position: static;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__right {
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (max-width: $lg) {
+      padding: 24px;
+      align-items: center;
+    }
+
+
+  }
+}
+
+/* ---------- BONUS CARD (subsection image) ---------- */
+.bonusCard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 36px;
+
+  &__titleWrap {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__p {
+    margin-top: 14px;
+    @include sectionDescription;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ---------- DOWNLOAD APP ---------- */
+.download {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 36px;
+
+  &__titleWrap {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__p {
+    margin-top: 14px;
+    @include sectionDescription;
+
+  }
+
+  &__stage {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__bg {
+    max-height: 686px;
+    aspect-ratio: 885 / 686;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+
+    .phone {
+      border-radius: 40px;
+      object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+
+      @media (max-width: $lg) {
+        position: static;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__stores {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (max-width: $lg) {
+      position: static;
+      transform: none;
+      align-items: center;
+      margin-top: 24px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 20px;
+    }
+
+    a img {
+      display: block;
+    }
+  }
+}
+
+/* ---------- MAP SECTION ---------- */
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 36px;
+  padding-bottom: 56px;
+
+  &__titleWrap {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+
+    @media (max-width: $md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @media (max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__h2 {
+    @include sectionTitle;
+  }
+
+  &__p {
+    margin-top: 14px;
+    @include sectionDescription;
+  }
+
+  &__content {
+    max-width: 1240px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    padding: 20px;
+
+    @media (max-width: $lg) {
+      flex-direction: column;
+    }
+  }
+
+  &__mapCol {
+    width: 70%;
+    aspect-ratio: 238/163;
+
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+
+    @media (max-width: $md) {
+      width: 100%;
+    }
+
+    .mapBox {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 100%;
+    }
+  }
+
+  &__listCol {
+    width: calc(30% - 34px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+
+    &__title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      @media (max-width: $lg) {
+        align-items: center;
+
+      }
+
+      &__addres {
+        color: var(--Primary-color-primary, #DD2B1C);
+        font-size: var(--heading-font-size-heading-sm, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-semibold, 600);
+        line-height: var(--heading-line-height-heading-sm, 24px); /* 133.333% */
+      }
+
+      &__subtitleCity {
+        color: var(--, #202020);
+        font-size: var(--heading-font-size-heading-xs, 16px);
+        font-style: normal;
+        font-weight: var(--font-weight-medium, 500);
+        line-height: var(--heading-line-height-heading-xs, 20px); /* 125% */
+      }
+
+    }
+
+    .subtitleRed {
+      color: #DD2B1C;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+    }
+
+    .subtitleCity {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+
+    .scrollWrap {
+      max-height: 590px;
+      overflow-y: auto;
+      padding-right: 16px;
+
+      height: 100%;
+      width: 100%;
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        height: auto;
+
+      }
+    }
+  }
+}
+
+
+.selectContent {
+  background: white;
+  z-index: 10000;
+  border: 1px solid #DD2B1C;
+
+  &__group {
+
+    &__label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #494949;
+
+    }
+
+    &__item {
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+
+      &:hover {
+        background: rgba(221, 43, 28, 0.8);
+        color: white;
+
+
+      }
+
+    }
+
+  }
+
+}

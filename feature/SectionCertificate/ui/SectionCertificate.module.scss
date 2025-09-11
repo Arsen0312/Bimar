@@ -1,0 +1,166 @@
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+
+@mixin sectionTitle {
+  color: var(--primary);
+  text-align: center;
+  font-weight: 700;
+  line-height: 2.2rem;
+  font-size: 2.25rem;
+
+  @media (max-width: $xxl) {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 28px
+  }
+
+  @media (max-width: $xl) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: $lg) {
+    font-size: 1.5rem;
+    line-height: 24px
+  }
+
+  @media (max-width: $md) {
+    font-size: 1.25rem;
+    line-height: 24px
+  }
+
+  @media (max-width: $sm) {
+    font-size: 1.125rem;
+    line-height: 24px
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; // 40px
+  align-items: center;
+  align-self: stretch;
+  margin-top: 2.25rem; // mt-9
+
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 100px;
+
+
+  @media (max-width: $xxl) {
+    padding: 0 80px;
+  }
+
+  @media (max-width: $xl) {
+    padding: 0 70px;
+  }
+
+  @media (max-width: $lg) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: $md) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 20px;
+  }
+}
+
+.title {
+  @include sectionTitle;
+}
+
+.description {
+  font-size: 28px;
+  font-weight: 600;
+  color: #212121;
+  line-height: 2.25rem; // 36px
+  margin-top: 0.875rem; // mt-3.5
+  text-align: center;
+
+  @media (max-width: $xxl) {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 2.15rem;
+    text-align: center;
+
+  }
+
+  @media (max-width: $xl) {
+    font-size: 24px;
+    font-weight: 600;
+    color: #212121;
+    line-height: 2rem;
+    text-align: center;
+
+  }
+
+  @media (max-width: $lg) {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 2.25rem; // 36px
+    text-align: center;
+
+  }
+
+  @media (max-width: $md) {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.75rem;
+    text-align: center;
+
+  }
+
+  @media (max-width: $sm) {
+    font-size: 18px;
+    font-weight: 600;
+    color: #212121;
+    line-height: 1.5rem; // 36px
+    text-align: center;
+
+  }
+
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sliderBackground {
+  max-height: 686px;
+  aspect-ratio: 1440 / 686;
+  background-image: url("/assets/Иллюстрация.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.sliderContainer {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.certificateImage {
+  object-fit: contain;
+}
