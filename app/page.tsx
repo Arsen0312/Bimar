@@ -239,9 +239,9 @@ const Page = () => {
         <main className={styles.main}>
             {/* HERO */}
             <section className={styles.hero}>
-                <img
+                <Image
                     src={srcImgMain}
-                    alt="mainImageBimar"
+                    alt="/assets/image_3.svg"
                     width={1240}
                     height={600}
                 />
@@ -261,10 +261,9 @@ const Page = () => {
                         className={styles.intro__imageWrap}
                         style={{backgroundImage: "url(/assets/Иллюстрация.png)"}}
                     >
-
-                        <img
+                        <Image
                             className={styles.intro__image}
-                            src="/assets/imgMagazinBimar.png"
+                            src="/assets/IMG_2188 1.svg"
                             alt="imgMagazinBimar"
                             width={580}
                             height={580}
