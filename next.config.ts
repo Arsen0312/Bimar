@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     /* config options here */
-    unoptimized: true, // отключает оптимизацию картинок
+    images: {
+        unoptimized: true, // отключает оптимизацию картинок
+    },
     transpilePackages: ['react-leaflet', 'leaflet'],
     output: 'export',
     env: {
