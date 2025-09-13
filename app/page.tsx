@@ -198,8 +198,6 @@ type TIsSelectedState = {
     zoom: number;
 }
 
-const srcImgMain = "/assets/mainImageBimar.png"
-
 const regionList: TIsSelectedState[] = [
     {
         center: [42.8746, 74.5698],
@@ -240,7 +238,7 @@ const Page = () => {
             {/* HERO */}
             <section className={styles.hero}>
                 <Image
-                    src={srcImgMain}
+                    src='/assets/image_3.svg'
                     alt="/assets/image_3.svg"
                     width={1240}
                     height={600}
