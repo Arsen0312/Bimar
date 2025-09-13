@@ -432,17 +432,16 @@ $xxl: 1440px;
     align-items: center;
     justify-content: center;
 
-    .phoneImg {
-      height: 100%;
-      width: auto;
-      border-radius: 40px;
-      object-fit: contain;
+    &__phoneImg {
+      max-width: 316px;
+      width: 22vw;
 
       @media (max-width: $lg) {
         position: static;
         transform: none;
         display: block;
         margin: 0 auto;
+        width: 42vw;
       }
     }
   }

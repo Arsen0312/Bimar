@@ -3,15 +3,24 @@ import Image from "next/image";
 
 type TProps = {
     name: string,
-    duringWork: string
-    onClick: () => void
+    duringWork: string,
+    coords?: [number, number],
+    onClick: (coords?: [number, number]) => void
 }
 
 const CurdStoreForMap = (props: TProps) => {
-    const { name, duringWork } = props
+    const { name, duringWork, onClick, coords } = props
+
+    const handleClick = () => {
+        if (coords) {
+            onClick(coords);
+        } else {
+            onClick();
+        }
+    }
 
     return (
-        <div className="border border-[#E0E0E0] rounded-[8px] p-1 flex flex-col">
+        <div onClick={handleClick} className="border border-[#E0E0E0] rounded-[8px] p-1 flex flex-col cursor-pointer">
             <div className="flex items-center gap-2">
                 <Image alt="locationIcon" src="assets/location.svg" width={24} height={24} />
                 <span className="text-[14px] font-normal text-[#202020] leading-[22px]">{name}</span>

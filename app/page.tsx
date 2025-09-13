@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import 'leaflet/dist/leaflet.css';
 
 import TextCurds from "@/feature/TextCurd/TextCurds";
@@ -24,6 +24,7 @@ export type TShops = {
     srcImg: string;
     address: string;
     region: "Бишкек" | "Ош" | "";
+    phoneNumber: string
 }
 
 const shops: TShops[] = [
@@ -33,7 +34,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Тыналиева, 7",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-2 МЕТРО",
@@ -41,7 +43,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Тыналиева, 5/1",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-3 МОСКОВСКАЯ",
@@ -49,7 +52,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Московская, 56/2",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-4 ОШ",
@@ -57,7 +61,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Ош, улица Раимбекова, 18а",
-        region: "Ош"
+        region: "Ош",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-5 ТОКТОГУЛА",
@@ -65,7 +70,8 @@ const shops: TShops[] = [
         duringWork: "07:00-01:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Токтогула, 116",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-6 АНГЛИЙСКИЙ",
@@ -73,7 +79,8 @@ const shops: TShops[] = [
         duringWork: "07:00-01:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Аалы Токомбаева, 24",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-7 СТАМБУЛ",
@@ -81,7 +88,8 @@ const shops: TShops[] = [
         duringWork: "07:00-00:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, мкр. Джал-23, 28",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: ""
     },
     {
         name: "БИМАР-8 РИОМ",
@@ -89,7 +97,8 @@ const shops: TShops[] = [
         duringWork: "08:00-02:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "с. Кожомкул, улица Фрунзе, 193/5",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-9 ОШ ГУРМЕ",
@@ -97,7 +106,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Ош, улица Карасуйская, 17а",
-        region: "Ош"
+        region: "Ош",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-10 ОШ МАКСКОМ",
@@ -105,7 +115,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Ош, улица Аскара Шакирова, 30",
-        region: "Ош"
+        region: "Ош",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-12 ШЕРОЙ",
@@ -113,7 +124,8 @@ const shops: TShops[] = [
         duringWork: "07:00-01:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Тыналиева, 3/12",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-13 ДОСТОЕВСКИЙ",
@@ -121,7 +133,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Кок-Жангак, 47а/1",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-14 НЕКРАСОВА",
@@ -129,7 +142,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Льва Толстого, 19/5",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-15 ТЮЛЬПАН",
@@ -137,7 +151,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Юсупа Абдрахманова, 204",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: ""
     },
     {
         name: "БИМАР-16 СИЛКВЕЙ",
@@ -145,7 +160,8 @@ const shops: TShops[] = [
         duringWork: "07:00-01:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Коенкозова, 119",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-17 ОШ АМАНАТ",
@@ -153,7 +169,8 @@ const shops: TShops[] = [
         duringWork: "07:00-01:00",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Ош, улица Пайзилды Айтмаматова, 3",
-        region: "Ош"
+        region: "Ош",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-18 БАХА",
@@ -161,7 +178,8 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Садырбаева, 117-119",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     },
     {
         name: "БИМАР-19 МАЕВКА",
@@ -169,21 +187,50 @@ const shops: TShops[] = [
         duringWork: "24/7",
         srcImg: "/assets/BimarPreviow.jpg",
         address: "г.Бишкек, улица Махатмы Ганди, 426/1",
-        region: "Бишкек"
+        region: "Бишкек",
+        phoneNumber: "996 990‒90‒08‒44"
     }
 ];
 
+type TIsSelectedState = {
+    center: [number, number];
+    region: "Бишкек" | "Ош";
+    zoom: number;
+}
+
+const srcImgMain = "/assets/mainImageBimar.png"
+
+const regionList: TIsSelectedState[] = [
+    {
+        center: [42.8746, 74.5698],
+        region: "Бишкек",
+        zoom: 12
+    },
+    {
+        center: [40.517223, 72.80564],
+        region: "Ош",
+        zoom: 12
+    }
+]
 
 const Page = () => {
-    const [isSelectRegion, setIsSelectRegion] = useState<"Бишкек" | "Ош" | "">("");
+    const [isSelectRegion, setIsSelectRegion] = useState<TIsSelectedState>({
+        center: [42.8746, 74.5698],
+        region: "Бишкек",
+        zoom: 12
+    });
+
+    useEffect(() => {
+        setIsShops(shops.filter((shop) => shop.region === isSelectRegion.region))
+    }, [])
+
     const [isShops, setIsShops] = useState<TShops[]>(shops);
 
-    const onClickCurdStoreForMap = (regionName: ("Бишкек" | "Ош" | "")) => {
-        if (isSelectRegion === regionName) {
-            setIsSelectRegion("")
-            setIsShops(shops)
+    const onChangeRegion = (regionName: ("Бишкек" | "Ош")) => {
+        if (isSelectRegion.region === regionName) {
+
         } else {
-            setIsSelectRegion(regionName)
+            setIsSelectRegion(regionList.find(region => region.region === regionName)!)
             setIsShops(() => shops.filter(shop => shop.region === regionName))
         }
     }
@@ -192,9 +239,8 @@ const Page = () => {
         <main className={styles.main}>
             {/* HERO */}
             <section className={styles.hero}>
-                <Image
-                    src="/assets/mainImageBimar.png"
-                    priority
+                <img
+                    src={srcImgMain}
                     alt="mainImageBimar"
                     width={1240}
                     height={600}
@@ -215,10 +261,9 @@ const Page = () => {
                         className={styles.intro__imageWrap}
                         style={{backgroundImage: "url(/assets/Иллюстрация.png)"}}
                     >
-                        <Image
+                        <img
                             className={styles.intro__image}
                             src="/assets/imgMagazinBimar.png"
-                            priority
                             alt="imgMagazinBimar"
                             width={580}
                             height={580}
@@ -336,7 +381,7 @@ const Page = () => {
                                 alt="iPhone_screen3_option3"
                                 width={336}
                                 height={705}
-                                className="phoneImg"
+                                className={styles.loyalty__left__phoneImg}
                             />
                         </div>
                     </div>
@@ -431,14 +476,14 @@ const Page = () => {
 
                 <div className={styles.map__content}>
                     <div className={styles.map__mapCol}>
-                        <BimarMap shops={isShops}/>
+                        <BimarMap shops={isShops} center={isSelectRegion.center} zoom={isSelectRegion.zoom} />
                     </div>
                     <div className={styles.map__listCol}>
                         <div className={styles.map__listCol__title}>
                             <span className={styles.map__listCol__title__addres}>Наши адреса</span>
-                            <Select value={isSelectRegion} onValueChange={onClickCurdStoreForMap}>
+                            <Select value={isSelectRegion.region} onValueChange={onChangeRegion}>
                                 <SelectTrigger className="w-[280px] w-fit">
-                                    <span className={styles.map__listCol__title__subtitleCity}>г. Бишкек:</span>
+                                    <span className={styles.map__listCol__title__subtitleCity}>г. {isSelectRegion.region}:</span>
                                 </SelectTrigger>
                                 <SelectContent className={styles.selectContent}>
                                     <SelectGroup className={styles.selectContent__group}>
@@ -455,7 +500,16 @@ const Page = () => {
                                         key={idx}
                                         duringWork={location.duringWork}
                                         name={location.name}
-                                        onClick={() => {}}
+                                        coords={location.coords}
+                                        onClick={(coords) => {
+                                            if (coords) {
+                                                setIsSelectRegion((prev) => ({
+                                                    ...prev,
+                                                    zoom: 16, // Высокий зум при клике на магазин
+                                                    center: coords
+                                                }));
+                                            }
+                                        }}
                                     />
                                 ))}
                             </div>
