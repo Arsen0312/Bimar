@@ -261,6 +261,7 @@ const Page = () => {
                         className={styles.intro__imageWrap}
                         style={{backgroundImage: "url(/assets/Иллюстрация.png)"}}
                     >
+
                         <img
                             className={styles.intro__image}
                             src="/assets/imgMagazinBimar.png"
